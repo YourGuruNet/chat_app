@@ -65,7 +65,7 @@ const App: () => Node = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Button title="Darkmode" onPress={() => setIsDarkMode(!isDarkMode)} />
-          <Section title="See Your Changes">hello world</Section>
+          <Section title="See Your Changes">This is chat app</Section>
         </View>
       </ScrollView>
     </SafeAreaView>
