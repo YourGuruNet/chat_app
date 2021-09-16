@@ -1,13 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React, {useState} from 'react';
-import type {Node} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -18,10 +9,10 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import io from 'socket.io-client';
 
-const Section = ({children, title}): Node => {
+const Section = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -47,7 +38,11 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const App: () => Node = () => {
+const App = () => {
+  useEffect(() => {
+    io('http://192.168.8.233:3000');
+  }, []);
+
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const backgroundStyle = {
@@ -65,7 +60,7 @@ const App: () => Node = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Button title="Darkmode" onPress={() => setIsDarkMode(!isDarkMode)} />
-          <Section title="See Your Changes">This is chat app</Section>
+          <Section title="This is chat app!"></Section>
         </View>
       </ScrollView>
     </SafeAreaView>
