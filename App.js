@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeScreen from './screen/HomeScreen';
+import HomeScreen from './screen/ChatScreen';
 
 const App = () => {
   return <HomeScreen />;
